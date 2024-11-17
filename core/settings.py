@@ -9,7 +9,7 @@ SECRET_KEY = 'django-insecure-b@u8504a4)67y@eu%+w4a$0c(svifwl+18old)b!4+&+uzv8f7
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 
 
 
@@ -51,8 +51,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'core.wsgi.application'
-
+# WSGI_APPLICATION = 'core.wsgi.application'
+WSGI_APPLICATION = 'core.wsgi.app'
 AUTH_USER_MODEL='accounts.User'
 
 # Database
