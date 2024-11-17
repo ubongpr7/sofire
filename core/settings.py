@@ -1,6 +1,8 @@
 
 from pathlib import Path
 import dj_databse_url
+from decouple import config 
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-b@u8504a4)67y@eu%+w4a$0c(svifwl+18old)b!4+&+uzv8f7'
@@ -61,8 +63,7 @@ DATABASES = {
     }
 }
 
-
-
+DATABASES['default']=dj_databse_url.config()
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
