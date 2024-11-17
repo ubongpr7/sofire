@@ -1,8 +1,31 @@
 {
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "core/wsgi.py"
-    }
-  ]
+    "version":2,
+    "build":[
+        {
+
+            "src":"core/wsgi.py",
+            "use":"@vercel/python",
+            "config":{
+                "maxLamdaSize":"15mb",
+                "untime":"python3.9"
+            }  
+        },
+        {
+            "src": "build.sh",
+            "use":"@vercel/static-build",
+            "config":{
+                "disDir": "staticfiles_build"
+            }
+        }
+    ],
+    "routes": [
+      {
+        "src": "/static/(.*)",
+        "dest": "/static/$l"
+      },
+      {
+        "src":"/(.*)",
+        "dest":"core.wsgi.py"
+      }
+    ]
 }
