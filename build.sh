@@ -1,13 +1,17 @@
 #!/bin/bash
 
-# Install pip
-echo "Installing pip..."
-python3.9 -m ensurepip --upgrade || true
-python3.9 -m pip install --upgrade pip setuptools wheel
+# Install pip3
+echo "Installing pip3..."
+sudo apt-get update -y
+sudo apt-get install -y python3-pip
+
+# Upgrade pip3, setuptools, and wheel
+echo "Upgrading pip3 and related tools..."
+pip3 install --upgrade pip setuptools wheel
 
 # Install dependencies
 echo "Installing dependencies..."
-python3.9 -m pip install -r requirements.txt
+pip3 install -r requirements.txt
 
 # Django migrations
 echo "Make Migration..."
