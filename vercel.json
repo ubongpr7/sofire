@@ -7,7 +7,7 @@
             "use":"@vercel/python",
             "config":{
                 "maxLamdaSize":"15mb",
-                "untime":"python3.9"
+                "untime":"python3.12"
             }  
         },
         {
