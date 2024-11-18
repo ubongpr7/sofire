@@ -1,7 +1,6 @@
 
+import os
 from pathlib import Path
-import dj_database_url
-from decouple import config 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -56,14 +55,28 @@ WSGI_APPLICATION = 'core.wsgi.app'
 AUTH_USER_MODEL='accounts.User'
 
 # Database
+"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DATABASE_NAME'),
+        'USER': os.getenv('DATABASE_USER'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
+        'HOST': os.getenv('DATABASE_HOST'),
+        'PORT': os.getenv('DATABASE_PORT'),
+    }
+}
 
-DATABASES['default']=dj_database_url.config()
+
+# DATABASES['default']=dj_database_url.config()
 
 AUTH_PASSWORD_VALIDATORS = [
     {
