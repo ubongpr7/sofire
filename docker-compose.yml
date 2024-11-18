@@ -9,9 +9,9 @@ services:
       - DATABASE_PORT=${DATABASE_PORT}
     command: >
       sh -c "
-        python3.10 manage.py makemigrations &&
-        python3.10 manage.py migrate &&
-        python3.10 manage.py runserver 0.0.0.0:8000
+        python3.12 manage.py makemigrations &&
+        python3.12 manage.py migrate &&
+        python3.12 manage.py runserver 0.0.0.0:8000
       "
     volumes:
       - .:/app 
