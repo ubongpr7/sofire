@@ -29,4 +29,4 @@ COPY . /app/
 EXPOSE 8000
 
 # Set the default command to run the app
-CMD ["gunicorn", "core.wsgi:application", "--bind", "0.0.0.0:8000"]
+# CMD ["gunicorn", "core.wsgi:application", "--bind", "0.0.0.0:8000"]
