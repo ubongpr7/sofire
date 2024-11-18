@@ -1,15 +1,19 @@
 services:
   web:
-    image: sofire_backend  
-    container_name: django_backend
+    image: ubongpr7/sofire_backend
+    environment:
+      - DATABASE_NAME=${DATABASE_NAME}
+      - DATABASE_USER=${DATABASE_USER}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+      - DATABASE_HOST=${DATABASE_HOST}
+      - DATABASE_PORT=${DATABASE_PORT}
+    command: >
+      sh -c "
+        python3.10 manage.py makemigrations &&
+        python3.10 manage.py migrate &&
+        python3.10 manage.py runserver 0.0.0.0:8000
+      "
+    volumes:
+      - .:/app 
     ports:
       - "8000:8000"
-    volumes:
-      - .:/app
-    env_file:
-      - .env
-    depends_on:
-      - db
-
-volumes:
-  postgres_data:
