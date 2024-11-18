@@ -1,0 +1,15 @@
+services:
+  web:
+    image: sofire_backend  
+    container_name: django_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
