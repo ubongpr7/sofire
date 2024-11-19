@@ -36,4 +36,8 @@ class User(AbstractUser):
 
 class Follower(models.Model):
     user=models.OneToOneField(User,related_name='follower', on_delete=models.CASCADE,)
-    
+
+
+class ProfilePhoto(models.Model):
+    picture=models.ImageField(upload_to='profile_photos')
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
