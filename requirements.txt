@@ -37,3 +37,4 @@ sqlparse
 tzdata
 urllib3
 whitenoise
+drf-yasg
