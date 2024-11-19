@@ -40,10 +40,6 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         #     instance.save()
         return user
 
-class UserPictureSerializer(serializers.ModelSerializer):
-    class Meta:
-        model=User
-        fields=("picture",)
 
 class LoginSerializer(serializers.Serializer):
     username=serializers.EmailField()

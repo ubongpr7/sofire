@@ -50,7 +50,6 @@ class UploadProfileView(APIView):
         print(request.data["file"])
         user.picture=picture
         user.save()
-        #serializer=UserPictureSerializer(picture,data=request.data)
         if user.picture==picture:
             print("saved")
             return Response("Profile picture updated Successfully",status=200)
