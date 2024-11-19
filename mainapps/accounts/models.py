@@ -20,7 +20,7 @@ class CustomUserManager(BaseUserManager):
 
 class User(AbstractUser):
     email = models.EmailField(unique=True, null=False, blank=False)
-    api_key = models.CharField(max_length=255, blank=True, null=True)
+    picture = models.ImageField(upload_to='profile_pictures/%y/%m/%d/', , null=True)
     class AccountTypeChoice(models.TextChoices):
         personal='personal','Personal'
         church='church','Church'
