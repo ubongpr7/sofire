@@ -18,7 +18,7 @@ from django.contrib.auth import get_user_model
 from rest_framework_simplejwt.views import TokenObtainPairView
 
 
-from mainapps.accounts.models import User,VerificationCode,BlacklistedToken
+from mainapps.accounts.models import User,VerificationCode
 from mainapps.accounts.views import send_html_email
 from .serializers import *
 
