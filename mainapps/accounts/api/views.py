@@ -19,7 +19,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 
 
 from mainapps.accounts.models import User,VerificationCode
-from mainapps.accounts.views import send_html_email
+from mainapps.accounts.utils import send_html_email
 from .serializers import *
 
 
