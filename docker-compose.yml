@@ -1,6 +1,6 @@
 services:
   web:
-    image: ubongpr7/sofire_backend
+    image: ubongpr7/sofire_backend:v1.0
     environment:
       - DATABASE_NAME=${DATABASE_NAME}
       - DATABASE_USER=${DATABASE_USER}
