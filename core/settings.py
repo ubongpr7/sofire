@@ -31,6 +31,7 @@ THIRD_PARTY_APPS=[
     'rest_framework_simplejwt.token_blacklist',
     'oauth2_provider',
     'tinymce',
+    'drf_yasg',
 
 ]
 INSTALLED_APPS.extend(THIRD_PARTY_APPS)
