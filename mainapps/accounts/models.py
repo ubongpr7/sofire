@@ -41,3 +41,24 @@ class Follower(models.Model):
 class ProfilePhoto(models.Model):
     picture=models.ImageField(upload_to='profile_photos')
     user=models.ForeignKey(User,on_delete=models.CASCADE)
+
+class VerificationCode(models.Model):
+    user=models.OneToOneField(User,on_delete=models.CASCADE)
+    code=models.CharField(max_length=6,blank=True)
+    slug=models.SlugField(editable=False,blank=True)
+    time_requested=models.DateTimeField(auto_now=True)
+    successful_attempts=models.IntegerField(default=0)
+    total_attempts=models.IntegerField(default=0)
+    def __str__(self):
+        return self.code
+    def save(self, *args,**kwargs):
+        nums=[i for i in range(1,9)]
+        code_list=[]
+        for i in range(6):
+            n=random.choice(nums)
+            code_list.append(n)
+        code_string="".join(str(i)  for i in code_list)
+        self.code=code_string
+        self.slug=self.user.username
+        super().save( *args,**kwargs)
+    
