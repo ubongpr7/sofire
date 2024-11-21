@@ -85,7 +85,6 @@ class GroupMembership(models.Model):
     class Roles(models.TextChoices):
         member='member',"Member"
         admin='admin',"Admin"
-        admin='admin',"Admin"
         moderator='moderator',"Moderator"
     role=models.CharField(max_length=30, choices=Roles,default=Roles.member)
 
@@ -134,7 +133,6 @@ class SofireGroupPermission(UpdatableModel):
     group = models.ForeignKey(SofireGroup, on_delete=models.CASCADE)
     class Roles(models.TextChoices):
         member='member',"Member"
-        admin='admin',"Admin"
         admin='admin',"Admin"
         moderator='moderator',"Moderator"
     role=models.CharField(max_length=30, choices=Roles,default=Roles.member)
