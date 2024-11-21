@@ -37,7 +37,12 @@ THIRD_PARTY_APPS=[
 INSTALLED_APPS.extend(THIRD_PARTY_APPS)
 
 MAIN_APPS=[
-    'mainapps.accounts'
+    'mainapps.accounts',
+    'mainapps.bell_group',
+    'mainapps.common',
+    'mainapps.event',
+    'mainapps.notfication',
+    'mainapps.user_profile',
 
 ]
 INSTALLED_APPS.extend(MAIN_APPS)

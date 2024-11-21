@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 from mainapps.common.helpers import register_models
-from .models import Post,PostComment,PostLike,Reaction
+from .models import *
 # Register your models here.
-register_models([Post,PostLike,PostComment,Reaction])
+
+register_models([Notification,])

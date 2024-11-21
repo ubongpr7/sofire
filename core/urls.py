@@ -21,6 +21,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/',include('mainapps.accounts.urls',namespace='accounts'),),
     path('auth/',include('mainapps.accounts.api.urls'),),
+    path('auth/',include('mainapps.bell_group.api.urls'),),
+    path('auth/',include('mainapps.common.api.urls'),),
+    path('auth/',include('mainapps.event.api.urls'),),
+    path('auth/',include('mainapps.notification.api.urls'),),
+    path('auth/',include('mainapps.post.api.urls'),),
+    path('auth/',include('mainapps.user_profile.api.urls'),),
 
 
     # third party

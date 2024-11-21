@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import *
 
-# Register your models here.
+
+for model in [UserInterest,OptionType,AnswerType,CustomForm,FormQuestion,Option,ShortAnswer,EssayAnswer,Attachment,File,Reaction,Tag,Comment,Share,Like,PlatformSettings,Subscription,CustomCategory,SocialMediaHandles]:
+    admin.site.register(model)
