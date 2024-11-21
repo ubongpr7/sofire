@@ -41,7 +41,7 @@ MAIN_APPS=[
     'mainapps.bell_group',
     'mainapps.common',
     'mainapps.event',
-    'mainapps.notfication',
+    'mainapps.notification',
     'mainapps.user_profile',
 
 ]
