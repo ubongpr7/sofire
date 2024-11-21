@@ -18,19 +18,20 @@ schema_view = get_schema_view(
    permission_classes=(permissions.AllowAny,),
 )
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('account/',include('mainapps.accounts.urls',namespace='accounts'),),
-    path('auth/',include('mainapps.accounts.api.urls'),),
-    path('auth/',include('mainapps.bell_group.api.urls'),),
-    path('',include('mainapps.common.api.urls'),),
-    path('event/',include('mainapps.event.api.urls'),),
-    path('notification/',include('mainapps.notification.api.urls'),),
-    path('post/',include('mainapps.post.api.urls'),),
-    path('user_profile/',include('mainapps.user_profile.api.urls'),),
-
+   path('admin/', admin.site.urls),
+   path('account/',include('mainapps.accounts.urls',namespace='accounts'),),
+   path('auth/',include('mainapps.accounts.api.urls'),),
+   path('group/',include('mainapps.bell_group.api.urls'),),
+   path('',include('mainapps.common.api.urls'),),
+   path('event/',include('mainapps.event.api.urls'),),
+   path('notification/',include('mainapps.notification.api.urls'),),
+   path('post/',include('mainapps.post.api.urls'),),
+   path('user_profile/',include('mainapps.user_profile.api.urls'),),
+   path('auth-api/', include('djoser.urls')),
+   path('auth-token/', include('djoser.urls.jwt')),
 
     # third party
-    path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
+   path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]
