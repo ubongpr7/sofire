@@ -26,7 +26,7 @@ from .serializers import *
 
 class AuthApi(viewsets.ModelViewSet):
     queryset=User.objects.all()
-    serializer_class=UserSerializer
+    serializer_class=MyUserSerializer
     permission_classes=[permissions.IsAuthenticated,]
 
 class RegistrationAPI(APIView):
@@ -136,7 +136,7 @@ class UserProfileView(APIView):
     
     permission_classes=[permissions.IsAuthenticated]
     def get(self,request):
-        serializer=UserSerializer
+        serializer=MyUserSerializer
         email=request.COOKIES.get('email')
         user=User.objects.get(username=email)
         return Response({'user':user},status=200)
