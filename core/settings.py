@@ -152,12 +152,19 @@ STATIC_ROOT=BASE_DIR/ 'staticfiles_build' / 'static'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
+EMAIL_BACKEND = 'django_ses.SESBackend'
+AWS_SES_REGION_NAME =  os.getenv("AWS_SES_REGION_NAME")
+AWS_SES_REGION_ENDPOINT = f'email.{AWS_SES_REGION_NAME}.amazonaws.com'
+AWS_SES_ACCESS_KEY_ID= os.getenv("AWS_SES_ACCESS_KEY_ID")
+AWS_SES_SECRET_ACCESS_KEY= os.getenv("AWS_SES_SECRET_ACCESS_KEY")
+USE_SES_V2 = True
+AWS_SES_FROM_EMAIL= os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 465  
 EMAIL_USE_SSL = True
 EMAIL_USE_TLS = False
-EMAIL_HOST_USER = "ubongpr7@gmail.com"
+EMAIL_HOST_USER = AWS_SES_FROM_EMAIL
+DEFAULT_FROM_EMAIL=AWS_SES_FROM_EMAIL
 
 
 
