@@ -22,11 +22,11 @@ urlpatterns = [
     path('account/',include('mainapps.accounts.urls',namespace='accounts'),),
     path('auth/',include('mainapps.accounts.api.urls'),),
     path('auth/',include('mainapps.bell_group.api.urls'),),
-    path('auth/',include('mainapps.common.api.urls'),),
-    path('auth/',include('mainapps.event.api.urls'),),
-    path('auth/',include('mainapps.notification.api.urls'),),
-    path('auth/',include('mainapps.post.api.urls'),),
-    path('auth/',include('mainapps.user_profile.api.urls'),),
+    path('',include('mainapps.common.api.urls'),),
+    path('event/',include('mainapps.event.api.urls'),),
+    path('notification/',include('mainapps.notification.api.urls'),),
+    path('post/',include('mainapps.post.api.urls'),),
+    path('user_profile/',include('mainapps.user_profile.api.urls'),),
 
 
     # third party
