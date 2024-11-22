@@ -32,6 +32,7 @@ urlpatterns = [
     # third party
    path('auth-api/', include('djoser.urls')),
    # path('auth-token/', include('djoser.urls.jwt')),
+   path('social_auth/', include('djoser.social.urls')),
    path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),

@@ -33,8 +33,10 @@ THIRD_PARTY_APPS=[
     'tinymce',
     'drf_yasg',
     'djoser',
+    'social_django',
 
 ]
+
 INSTALLED_APPS.extend(THIRD_PARTY_APPS)
 
 MAIN_APPS=[
@@ -124,8 +126,26 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 AUTHENTICATION_BACKENDS = [
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
     "djoser.auth_backends.LoginFieldBackend",
+
+    'django.contrib.auth.backends.ModelBackend',
 ]
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET=os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY=os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
+SOCIAL_AUTH_GOOGLE_OAUTH2_EXTRA_DATA=['first_name', 'last_name']
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE=[
+'https://www.googleapis.com/userinfo.email',
+'https://www.googleapis.com/userinfo.profile',
+]
+
+SOCIAL_AUTH_FACEBOOK_SECRET=os.getenv('SOCIAL_AUTH_FACEBOOK_SECRET')
+SOCIAL_AUTH_FACEBOOK_KEY=os.getenv('SOCIAL_AUTH_FACEBOOK_KEY')
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS={
+    'fields':'email,first_name,last_name'
+}
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE=['email']
 DJOSER = {
     'PASSWORD_RESET_CONFIRM_URL': 'password/reset/confirm/{uid}/{token}',
     'USERNAME_RESET_CONFIRM_URL': 'username/reset/confirm/{uid}/{token}',
@@ -134,7 +154,8 @@ DJOSER = {
     'USER_CREATE_PASSWORD_RETYPE':True,
     'PASSWORD_RESET_CONFIRM_RETYPE':True,
     'LOGOUT_ON_PASSWORD_CHANGE':True,
-    'TOKEN_MODEL':None
+    'TOKEN_MODEL':None,
+    'SOCIAL_AUTH_ALLOWED_REDIRECT_URIS':os.getenv('SOCIAL_AUTH_ALLOWED_REDIRECT_URIS').split(',')
 }
 DOMAIN=''
 SITE_NAME='Sofire'
