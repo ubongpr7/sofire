@@ -21,7 +21,8 @@ schema_view = get_schema_view(
 urlpatterns = [
    path('admin/', admin.site.urls),
    path('account/',include('mainapps.accounts.urls',namespace='accounts'),),
-   path('auth/',include('mainapps.accounts.api.urls'),),
+   path('acccount-api/',include('mainapps.accounts.api.urls'),),
+   
    path('group/',include('mainapps.bell_group.api.urls'),),
    path('',include('mainapps.common.api.urls'),),
    path('event/',include('mainapps.event.api.urls'),),
