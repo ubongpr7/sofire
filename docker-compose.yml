@@ -1,6 +1,6 @@
 services:
   web:
-    image: ubongpr7/sofire_backend:v1.0
+    image: ubongpr7/sofire_backend:latest
     env_file:
       - .env
     command: >
