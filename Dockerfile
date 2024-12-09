@@ -7,7 +7,7 @@ ENV PYTHONUNBUFFERED=1
 
 # Set the working directory in the container
 WORKDIR /app
-
+COPY .env /app/.env
 # Install system dependencies
 RUN apk add --no-cache \
     gcc \
@@ -28,5 +28,3 @@ COPY . /app/
 # Expose the port Django will run on
 EXPOSE 8000
 
-# Set the default command to run the app
-# CMD ["gunicorn", "core.wsgi:application", "--bind", "0.0.0.0:8000"]

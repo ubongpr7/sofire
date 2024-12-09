@@ -1,12 +1,8 @@
 services:
   web:
     image: ubongpr7/sofire_backend:v1.0
-    environment:
-      - DATABASE_NAME=${DATABASE_NAME}
-      - DATABASE_USER=${DATABASE_USER}
-      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
-      - DATABASE_HOST=${DATABASE_HOST}
-      - DATABASE_PORT=${DATABASE_PORT}
+    env_file:
+      - .env
     command: >
       sh -c "
         python3.12 manage.py makemigrations &&

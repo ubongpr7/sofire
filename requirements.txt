@@ -27,6 +27,7 @@ psycopg2-binary
 pycparser
 PyJWT
 python-dateutil
+python-dotenv
 python3-openid
 pytz
 requests
